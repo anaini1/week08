@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your personal-budget here."> <!-- This is an SEO Change -->
     <title>Personal Budget</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
-    <div class="menu">
+    <div class="menu" aria-label="Main Menu">
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="#">Home</a></li><!-- This is an SEO Change -->
             <li><a href="about.html">About</a></li>
             <li><a href="login.html">Login</a></li>
-            <li><a href="https://google.com">Google</a></li>
+            <li><a href="https://google.com" target="_blank" rel="noopener noreferrer">Google</a></li> <!-- This is a Semantic HTML Change (target attribute)--> <!-- This is an SEO Change --> <!-- enhances the security of the webpage-->
         </ul>
     </div>
 
-    <div class="hero">
-        <h1>Personal Budget</h1>
-        <h2>A personal-budget management app</h2>
+    <div class="hero"> 
+        <title>Personal Budget Management App </title> <!-- This is an SEO Change -->
+        <h1>Personal Budget Management App </h1> 
     </div>
 
     <div class="container center">
@@ -28,17 +29,17 @@
         <div class="page-area">
 
             <div class="text-box">
-                <h1>Stay on track</h1>
-                <p>
-                    Do you know where you are spending your money? If you really stop to track it down,
-                    you would get surprised! Proper budget management depends on real data... and this
-                    app will help you with that!
+                <h1 id="stay-on-track-heading">Stay on track</h1><!-- This is an A11y Change -->
+                    <p aria-labelledby="stay-on-track-heading"><!-- This is an A11y Change -->
+                        Do you know where you are spending your money? If you really stop to track it down,
+                        you would get surprised! Proper budget management depends on real data... and this
+                        app will help you with that!
                 </p>
             </div>
     
             <div class="text-box">
-                <h1>Alerts</h1>
-                <p>
+                <h1 id="alerts-heading">Alerts</h1><!-- This is an A11y Change -->
+                <p aria-labelledby="alerts-heading"><!-- This is an A11y Change -->
                     What if your clothing budget ended? You will get an alert. The goal is to never go over the budget.
                 </p>
             </div>
@@ -69,9 +70,8 @@
             </div>
     
             <div class="text-box">
-                <h1>Alerts</h1>
-                <p>
-                    What if your clothing budget ended? You will get an alert. The goal is to never go over the budget.
+                <h1 id="alerts-heading">Alerts</h1><!-- This is an A11y Change -->
+                <p aria-labelledby="alerts-heading"><!-- This is an A11y Change -->
                 </p>
             </div>
     
@@ -95,11 +95,11 @@
 
     </div>
 
-    <div class="bottom">
+    <footer class="bottom"><!-- This is a Semantic HTML Change -->
         <div class="center">
-            All rights reserved &copy; Fabio Nolasco
+            <small>All rights reserved &copy; Ashish Reddy</small><!-- This is a Semantic HTML Change -->
         </div>
-    </div>
+    </footer>
 
 </body>
 </html>
