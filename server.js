@@ -1,6 +1,7 @@
 // Budget API
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs');
 const app = express();
 const port = 4000;
 const bodyParser = require('body-parser');
@@ -10,25 +11,10 @@ app.use(bodyParser.json());
 
 app.use('/', express.static('public'));
 
-const budget = {
-    myBudget: [
-        {
-            title: 'Eat out!!',
-            budget: 250
-        },
-        {
-            title: 'Rent',
-            budget: 275
-        },
-        {
-            title: 'Grocery',
-            budget: 10
-        },
-    ]
-};
+const data = fs.readFileSync('budget.json', 'utf8');
 
 app.get('/budget', (req, res) => {
-    res.send(budget);
+    res.send(data);
 });
 
 app.listen(port, () => {
