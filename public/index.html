@@ -90,6 +90,11 @@
                     This app is free!!! And you are the only one holding your data!
                 </p>
             </div>
+            <div class="graphs_container">
+                <h2>ChartJS chart!!</h2>
+                <canvas id="myChart" width="400" height="400"></canvas>
+
+            </div>
 
         </div>
 
@@ -100,6 +105,57 @@
             <small>All rights reserved &copy; Ashish Reddy</small><!-- This is a Semantic HTML Change -->
         </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        var data = {
+                    data: [30, 350, 90],
+                    backgroundColor: [
+                        '#ffcd56',
+                        '#ff6384',
+                        '#36a2eb',
+                        '#fd6b19'
+                    ],
+                    labels: [
+                    'Eat out',
+                    'Rent',
+                    'Groceries'
+                    ]
+        };
+        function createChart() {
+          new Chart(myChart, {
+            type: "doughnut",
+            data: {
+                labels: data.labels,
+                datasets: [
+                {
+                    label: "Language Popularity",
+                    data: data.data,
+                },
+                ],
+            }
+            })
+        }
+        //createChart();
+
+
+       function getBudget() {
+            axios.get('/budget')
+            .then((res) => {
+                console.log(res.data);
+                for(var i = 0; i < res.data.length; i++ ){
+                    data.data[i] = res.data.myBudget[i].budget;
+                    data.labels[i] = res.data.myBudget[i].title;
+                }
+                console.log(data.data[0]);
+                console.log(res.data.myBudget[0].budget);
+                createChart();
+            })
+        };
+        getBudget();
+    </script>
 
 </body>
 </html>
